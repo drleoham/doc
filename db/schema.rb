@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< 9ec7a286adfc1918130294431ed6ec7b04d998a4
 ActiveRecord::Schema.define(version: 20170825010735) do
 
   create_table "dcomments", force: :cascade do |t|
     t.text     "content"
     t.integer  "post_id"
+=======
+ActiveRecord::Schema.define(version: 20170825025434) do
+
+  create_table "medications", force: :cascade do |t|
+>>>>>>> second commit
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

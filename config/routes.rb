@@ -14,8 +14,13 @@ Rails.application.routes.draw do
   get '/destroy2/:id' => 'home#destroy2'
   get '/edit2/:id' => 'home#edit2'
   post '/update2/:id' => 'home#update2'
+<<<<<<< 9ec7a286adfc1918130294431ed6ec7b04d998a4
   post '/:id/dcomment' => 'home#dcomment'
 
+=======
+  get '/home/patientlist' => 'home#patientlist'
+  get '/home/patientlist/:id' => 'home#patient_detail'
+>>>>>>> second commit
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

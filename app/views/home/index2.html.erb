@@ -1,20 +1,30 @@
-<h1>환자</h1>
 <div class="container">
+  <div class="row">
+  <h1>Discussion Board</h1> <br>
+  <% if patient_signed_in? %>
+  <p>Welcome, <%= current_patient.email.split('@').first %><p>
+  Your status is: Patient
+  <% end %>
+  <br>
 <% unless patient_signed_in? %>
-<a href ="/patients/sign_in">로그인</a>
-<a href ="/patients/sign_up">회원가입</a>
+<a href ="/patients/sign_in">Login</a>
+<a href ="/patients/sign_up">Sign up</a>
 <%else%>
-<%= current_patient.email %>
-<a href ="/patients/sign_out">로그아웃</a>
+<br>
+<a href ="/patients/sign_out">Logout</a><br>
 <%end%>
-    <br><a href="/home/new2">글작성하기</a>
-    <div class="well">
-    <% @post123.each do |p| %>
-        <div>
-            <p> <%= p.title2 %>
-            <br><%= p.content2 %>
-        </div>
+    <a href="/home/new2">Create post</a>
+    <br>
+
+    <div>
+      <% @post123.each do |p| %>
+        <div class="well">
+          Subject : <%= p.title2 %><br>
+          Content : <%= p.content2 %><br>
+          Last updated: <%= time_ago_in_words(p.created_at) + ' ago' %><br><br>
+
         <a href="/destroy2/<%= p.id %>">Delete</a> <br> <a href="/edit2/<%= p.id %>">Edit</a></p>
     <%end%>
     </div>
+  </div>
 </div>
