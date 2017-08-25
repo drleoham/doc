@@ -117,8 +117,11 @@ class HomeController < ApplicationController
   end
 
   def settings
-    @patient = Patient.find_by_id(params[:id])
     render :layout => "patient"
+  end
+
+  def docsettings
+    render :layout => "blank"
   end
 
   def addmed
