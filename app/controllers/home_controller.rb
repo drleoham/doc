@@ -77,7 +77,7 @@ class HomeController < ApplicationController
     dcomment.content = params[:content]
     dcomment.post_id = params[:id]
     dcomment.save
-
+  end
 
   def blank
     render :layout => "blank"
@@ -106,7 +106,4 @@ class HomeController < ApplicationController
     medication.save
     redirect_to '/home/index'
   end
-
-
-end
 end
