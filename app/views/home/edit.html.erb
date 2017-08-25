@@ -1,14 +1,14 @@
 <div class="container">
-    <h1>글다시쓰기</h1>
-    <form action="/update/<%= @edit.id %>" method="POST">
-      <div class="form-group">
-        <label>Title</label>
-        <input type="text" name="title" class="form-control" value="<%= @edit.title %>">
-      </div>
-      <div class="form-group">
-        <label>Content</label>
-        <textarea name="content" class="form-control"><%=@edit.content%></textarea>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+  <h1>글다시쓰기</h1>
+  <form action="/update/<%= @edit.id %>" method="POST">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" name="title" class="form-control" value="<%= @edit.title %>">
+    </div>
+    <div class="form-group">
+      <label>Content</label>
+      <textarea name="content" class="form-control"><%=@edit.content%></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
 </div>

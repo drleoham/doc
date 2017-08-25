@@ -1,10 +1,32 @@
 <div class="container">
-  <div class="row">
-  <h1>Patient List</h1> <br>
-    <% @patients.each do |patient| %>
-      <li>
-        <a href="/home/patientlist/<%= patient.id %>"><%= patient.email %></a>
-      </li>
-    <% end %>
-  </div>
+  <h1>Patient List</h1>
+  <br>
+  <table id="myTable" class="display">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>number</th>
+        <th>view</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @patients.each do |patient| %>
+        <tr>
+          <td><%= patient.email %></td>
+          <td><%= patient.id %></td>
+          <td><%= patient.detailcoms.length %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
+<script>
+  $(document).ready(function(){
+    var table = $('#myTable').DataTable();
+  
+    $('#myTable tbody').on('click', 'tr', function () {
+        var data = table.row( this ).data();
+        window.location.href = "/home/patientlist/"+data[1];
+    } );
+  });
+</script>
