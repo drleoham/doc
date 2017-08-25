@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+  <h1>Patient List</h1> <br>
+    <% @patients.each do |patient| %>
+      <li>
+        <a href="/home/patientlist/<%= patient.id %>"><%= patient.email %></a>
+      </li>
+    <% end %>
+  </div>
+</div>

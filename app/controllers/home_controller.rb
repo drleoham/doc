@@ -5,6 +5,7 @@ class HomeController < ApplicationController
 
   def index2
     @post123 = Posttest.all
+    render :layout => "patient"
   end
 
   def new
@@ -12,7 +13,11 @@ class HomeController < ApplicationController
   end
 
   def new2
+<<<<<<< 9ec7a286adfc1918130294431ed6ec7b04d998a4
 
+=======
+    render :layout => "patient"
+>>>>>>> second commit
   end
 
   def write2
@@ -49,6 +54,7 @@ class HomeController < ApplicationController
 
   def edit2
     @edit123 = Posttest.find(params[:id])
+    render :layout => "patient"
   end
 
   def update
@@ -75,6 +81,32 @@ class HomeController < ApplicationController
     dcomment.post_id = params[:id]
     dcomment.save
 
+
+  def blank
+    render :layout => "blank"
+  end
+
+  def homepage
+    render :layout => "blank"
+  end
+
+  def medications
+    @medication = medication.all
+  end
+
+  def patientlist
+    @patients = Patient.all
+  end
+
+  def patient_detail
+    @patient = Patient.find_by_id(params[:id])
+  end
+
+  def addmed
+    medication = Medication.new
+    medication.name = params[:name]
+    medication.directions = params[:directions]
+    medication.save
     redirect_to '/home/index'
   end
 

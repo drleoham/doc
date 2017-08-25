@@ -1,4 +1,6 @@
+
 <div class="container">
+
   <% unless user_signed_in? %>
     <a href ="/users/sign_in">로그인</a>
     <a href ="/users/sign_up">회원가입</a>
@@ -27,5 +29,35 @@
           <a href="/edit/<%= p.id %>">Edit</a></p>
       </div>
     <%end%>
+  </div>
+</div>
+
+  <div class="row">
+  <h1>Discussion Board</h1> <br>
+  <% if user_signed_in? %>
+  <p>Welcome, <%= current_user.email.split('@').first %><p>
+  Your status is: Doctor
+  <% end %>
+  <br>
+<% unless user_signed_in? %>
+<a href ="/users/sign_in">Login</a>
+<a href ="/users/sign_up">Sign up</a>
+<%else%>
+<br>
+<a href ="/users/sign_out">Logout</a><br>
+<%end%>
+    <a href="/home/new">Create post</a>
+    <br>
+
+    <div>
+      <% @post.each do |p| %>
+        <div class="well">
+          Subject : <%= p.title %><br>
+          Content : <%= p.content %><br>
+          Last updated: <%= time_ago_in_words(p.created_at) + ' ago' %><br><br>
+
+        <a href="/destroy/<%= p.id %>">Delete</a> <br> <a href="/edit/<%= p.id %>">Edit</a></p>
+    <%end%>
+    </div>
   </div>
 </div>
