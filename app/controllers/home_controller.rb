@@ -146,4 +146,8 @@ class HomeController < ApplicationController
     comment.save
     redirect_to :back
   end
+
+  def book
+
+  end
 end

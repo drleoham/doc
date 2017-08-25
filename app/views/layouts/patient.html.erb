@@ -23,13 +23,9 @@
       }
     </style>
     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= csrf_meta_tags %>
 </head>
 <body>
@@ -48,63 +44,64 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <% if patient_signed_in? %>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Discussion Board <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">My Page </a></li>
-          <li><a href="#">My Medications </a></li>
-          <li><a href="#">Treatment Plan </a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-          <li><a href="/home/index2">Discussion Board <span class="sr-only">(current)</span></a></li>
-          <li><a href="/home/patientlist/<%=current_patient.id %>">My Page </a></li>
-        </ul>
-        <form class="navbar-form navbar-left">
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/home/settings/:id">Account Settings</a></li>
-
-          <li><a href="/users/sign_out">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  <% end %>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Discussion Board <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">My Page </a></li>
+            <li><a href="#">My Medications </a></li>
+            <li><a href="#">Treatment Plan </a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a href="/home/index2">Discussion Board <span class="sr-only">(current)</span></a></li>
+            <li><a href="/home/patientlist/<%=current_patient.id %>">My Page </a></li>
+          </ul>
+          <form class="navbar-form navbar-left">
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/home/settings/:id">Account Settings</a></li>
+            <li><a href="/users/sign_out">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<% end %>
 <%= yield %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js" ></script>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <script>
-
-
-         $(document).ready(function()
-      {
-        var navItems = $('.admin-menu li > a');
-        var navListItems = $('.admin-menu li');
-        var allWells = $('.admin-content');
-        var allWellsExceptFirst = $('.admin-content:not(:first)');
-        allWellsExceptFirst.hide();
-        navItems.click(function(e)
+  $(document).ready(function()
         {
-            e.preventDefault();
-            navListItems.removeClass('active');
-            $(this).closest('li').addClass('active');
-            allWells.hide();
-            var target = $(this).attr('data-target-id');
-            $('#' + target).show();
-        });
-        });
+          var navItems = $('.admin-menu li > a');
+          var navListItems = $('.admin-menu li');
+          var allWells = $('.admin-content');
+          var allWellsExceptFirst = $('.admin-content:not(:first)');
+          allWellsExceptFirst.hide();
+          navItems.click(function(e)
+          {
+     e.preventDefault();
+     navListItems.removeClass('active');
+     $(this).closest('li').addClass('active');
+     allWells.hide();
+     var target = $(this).attr('data-target-id');
+     $('#' + target).show();
+          });
+          });
 </script>
 </body>
 </html>
