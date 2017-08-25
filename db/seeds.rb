@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+rand(10..20).times do
+  patient = Patient.create(email: Faker::Internet.email, password: 'password')
+
+  10.times do
+    Post.create(title: Faker::Lorem.sentence, content: Faker::Lorem.sentence, patient_id: patient)
+  end
+end
