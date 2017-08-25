@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :patients
   devise_for :users
+
   root 'home#homepage'
   get '/home/index', as: :user_root
   get '/home/index2', as: :patient_root
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   get '/home/patientlist' => 'home#patientlist'
   get '/home/patientlist/:id' => 'home#patient_detail'
   post 'home/patient_comment/:patient_id' => 'home#patient_comment'
+  get '/home/settings/:id' => 'home#settings'
+  get '/home/docsettings' => 'home#docsettings'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -71,4 +74,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end
