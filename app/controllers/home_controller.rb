@@ -13,11 +13,8 @@ class HomeController < ApplicationController
   end
 
   def new2
-<<<<<<< 9ec7a286adfc1918130294431ed6ec7b04d998a4
 
-=======
     render :layout => "patient"
->>>>>>> second commit
   end
 
   def write2
@@ -111,4 +108,5 @@ class HomeController < ApplicationController
   end
 
 
+end
 end
