@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   get '/destroy2/:id' => 'home#destroy2'
   get '/edit2/:id' => 'home#edit2'
   post '/update2/:id' => 'home#update2'
+  post '/:id/dcomment' => 'home#dcomment'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  
+
   # You can have the root of your site routed with "root"
 
   # Example of regular route:
