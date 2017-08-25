@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
+
   def index
     @post = Post.all
+    render :layout => "blank"
   end
 
   def index2
@@ -9,7 +11,7 @@ class HomeController < ApplicationController
   end
 
   def new
-
+    render :layout => "blank"
   end
 
   def new2
@@ -47,6 +49,7 @@ class HomeController < ApplicationController
 
   def edit
     @edit = Post.find(params[:id])
+    render :layout => "blank"
   end
 
   def edit2
@@ -86,7 +89,6 @@ class HomeController < ApplicationController
   end
 
   def homepage
-    render :layout => "blank"
   end
 
   def medications
@@ -94,7 +96,29 @@ class HomeController < ApplicationController
   end
 
   def patientlist
+
     @patients = Patient.all
+
+    if patient_signed_in?
+      redirect_to "/home/index2"
+    else
+      render :layout => "blank"
+    end
+  end
+
+  def patient_detail
+    @patient = Patient.find_by_id(params[:id])
+    if user_signed_in?
+      render :layout => "blank"
+    else
+      render :layout => "patient"
+    end
+
+  end
+
+  def settings
+    @patient = Patient.find_by_id(params[:id])
+    render :layout => "patient"
   end
 
   def addmed

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :patients
   devise_for :users
+
   root 'home#homepage'
   get '/home/index', as: :user_root
   get '/home/index2', as: :patient_root
@@ -71,4 +72,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end
