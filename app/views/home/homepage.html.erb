@@ -1,32 +1,28 @@
 <div class="container" align="left">
-    <div class="wrapper">
+  <div class="wrapper">
     <div class="well" style="height:200px; width:200px;">
-        <h1>DOCTOR</h1>
-        <% unless user_signed_in? %>
+      <h1>DOCTOR</h1>
+      <% unless user_signed_in? %>
         <div class="buttons">
-        <a href ="/users/sign_in"><button>Login</button></a>
-        <a href ="/users/sign_up"><button>Register</button></a>
+          <a href ="/users/sign_in"><button>Login</button></a>
+          <a href ="/users/sign_up"><button>Register</button></a>
         </div>
-
-        <% else %>
+      <% else %>
         <div class="buttons">
-        <a href ="/home/index"><button>My Page</button></a>
+          <a href ="/home/index"><button>My Page</button></a>
         </div>
-        <% end %>
+      <% end %>
     </div>
     <div class="well" style="height:200px; width:200px;">
-        <h1>PATIENT</h1>
-        <% unless patient_signed_in? %>
+      <h1>PATIENT</h1>
+      <% unless patient_signed_in? %>
         <a href ="/patients/sign_in"><button>Login</button></a>
         <a href ="/patients/sign_up"><button>Register</button></a>
-
-        <% else %>
-        <% else %>
+      <% else %>
         <div class="buttons">
-        <a href ="/home/index2"><button>My Page</button></a>
+          <a href ="/home/index2"><button>My Page</button></a>
         </div>
-
-        <%end%>
+      <%end%>
     </div>
-    </div>
+  </div>
 </div>

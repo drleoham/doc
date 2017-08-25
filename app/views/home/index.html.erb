@@ -1,19 +1,31 @@
 <div class="container">
-<% unless user_signed_in? %>
-<a href ="/users/sign_in">로그인</a>
-<a href ="/users/sign_up">회원가입</a>
-<%else%>
-<%= current_user.email %>
-<a href ="/users/sign_out">로그아웃</a>
-<%end%>
-    <a href="/home/new">글작성하기</a>
-    <div>
+  <% unless user_signed_in? %>
+    <a href ="/users/sign_in">로그인</a>
+    <a href ="/users/sign_up">회원가입</a>
+  <%else%>
+    <%= current_user.email %>
+    <a href ="/users/sign_out">로그아웃</a>
+  <%end%>
+  <a href="/home/new">글작성하기</a>
+  <div>
     <% @post.each do |p| %>
-        <div>
-            <p> <%= p.title %>
-            <br><%= p.content %>
-        </div>
-        <a href="/destroy/<%= p.id %>">Delete</a> <br> <a href="/edit/<%= p.id %>">Edit</a></p>
+      <div class="well">
+        <p>제목: <%= p.title %>
+          <br>
+          내용: <%= p.content %>
+          <br>
+          <ol>
+            <% p.dcomments.each do |dc| %>
+              <li> : <%= dc.content %></li>
+            <% end %>
+          </ol>
+          <form action ="/<%= p.id %>/dcomment" method="POST">
+            <input type="text" name="content">
+            <input type="submit">
+          </form>
+          <a href="/destroy/<%= p.id %>">Delete</a> <br>
+          <a href="/edit/<%= p.id %>">Edit</a></p>
+      </div>
     <%end%>
-    </div>
+  </div>
 </div>
