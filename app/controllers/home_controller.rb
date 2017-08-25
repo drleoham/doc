@@ -77,6 +77,8 @@ class HomeController < ApplicationController
     dcomment.content = params[:content]
     dcomment.post_id = params[:id]
     dcomment.save
+
+    redirect_to '/home/index'
   end
 
   def blank
@@ -95,15 +97,26 @@ class HomeController < ApplicationController
     @patients = Patient.all
   end
 
-  def patient_detail
-    @patient = Patient.find_by_id(params[:id])
-  end
-
   def addmed
     medication = Medication.new
     medication.name = params[:name]
     medication.directions = params[:directions]
     medication.save
     redirect_to '/home/index'
+  end
+
+
+
+  def patient_detail
+    @patient = Patient.find_by_id(params[:id])
+
+  end
+
+  def patient_comment
+    comment = Detailcom.new
+    comment.content = params[:putcomment]
+    comment.patient_id = params[:patient_id]
+    comment.save
+    redirect_to :back
   end
 end

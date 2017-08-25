@@ -1,3 +1,11 @@
-
-<h1><%= @patient.id %></h1>
-<h1><%= @patient.email %></h1>
+<h1><%= @patient.id %>번 <%= @patient.email %> 입니다 </h1>
+<h2>코멘트 달기</h2>
+<form action="/home/patient_comment/<%=@patient.id%>" method="post">
+  <label for="exampleInputEmail1">댓글 </label>
+  <textarea name="putcomment" class="form-control" rows="3" placeholder="내용"></textarea>
+  <br>
+  <button type="submit" class="btn btn-default">Submit</button>
+  <% @patient.detailcoms.each do |pc| %>
+    <li> : <%= pc.content %></li>
+  <% end %>
+</form>

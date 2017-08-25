@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post '/:id/dcomment' => 'home#dcomment'
   get '/home/patientlist' => 'home#patientlist'
   get '/home/patientlist/:id' => 'home#patient_detail'
+  post 'home/patient_comment/:patient_id' => 'home#patient_comment'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
